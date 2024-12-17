@@ -4,10 +4,7 @@ IP-CIDR,103.115.43.2/32,no-resolve
 IP-CIDR,104.236.69.0/24,no-resolve
 
 # 国外
-DOMAIN-SUFFIX,sspanel.net
 DOMAIN-SUFFIX,v2ex.com
-DOMAIN-SUFFIX,github.com
-DOMAIN-SUFFIX,github.global.ssl.fastly.net
 DOMAIN-SUFFIX,assets-cdn.github.com
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,movie.eroterest.net
@@ -20,19 +17,15 @@ DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercomcdn.com
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,youtube.com
 DOMAIN-SUFFIX,v2ray-agent.com
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,clientarea.php
-DOMAIN-SUFFIX,tiktok.com
 DOMAIN-SUFFIX,hudsonvalleyhost.com
 DOMAIN-SUFFIX,sis001.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,www1.bigairport-nineteenth-sub.top
 DOMAIN-SUFFIX,spaceship.com
 DOMAIN-SUFFIX,bolt.new
-DOMAIN-SUFFIX,githubusercontent.com
-DOMAIN-SUFFIX,raw.githubusercontent.com
 DOMAIN-SUFFIX,silicloud.com
 #DOMAIN-SUFFIX,geosite:speedtest
 
