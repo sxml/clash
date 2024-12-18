@@ -8,6 +8,7 @@ DOMAIN-SUFFIX,hao123.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,baidu
+DOMAIN-KEYWORD,5207755
 
 # IP段匹配
 IP-CIDR,219.146.1.66/32,no-resolve
@@ -295,9 +296,7 @@ DOMAIN-SUFFIX,zerotier.com
 DOMAIN-SUFFIX,my.zerotier.com
 DOMAIN-SUFFIX,lastpass.com
 DOMAIN-SUFFIX,ele.me
-DOMAIN-SUFFIX,ip.3322.net
 DOMAIN-SUFFIX,ddns.oray.com
-DOMAIN-SUFFIX,d.5207755.xyz
-DOMAIN-SUFFIX,j.5207755.xyz
 DOMAIN-SUFFIX,bitwarden.com
 DOMAIN-SUFFIX,lastpass.com
+DOMAIN,ip.3322.net
