@@ -1,8 +1,8 @@
 # 域名后缀匹配
-DOMAIN-SUFFIX,x.com
+#DOMAIN-SUFFIX,x.com
 
 # 域名关键字匹配
-DOMAIN-KEYWORD,x
+#DOMAIN-KEYWORD,speedtest
 
 # IP段匹配
 IP-CIDR,142.171.133.131/32,no-resolve
@@ -33,7 +33,6 @@ DOMAIN-SUFFIX,www1.bigairport-nineteenth-sub.top
 DOMAIN-SUFFIX,spaceship.com
 DOMAIN-SUFFIX,bolt.new
 DOMAIN-SUFFIX,silicloud.com
-#DOMAIN-SUFFIX,geosite:speedtest
 
 IP-CIDR,8.8.8.8/32,no-resolve
 IP-CIDR,8.8.4.4/32,no-resolve
@@ -65,5 +64,4 @@ IP-CIDR,2a09::,no-resolve
 DOMAIN-SUFFIX,qichiyu.com
 DOMAIN-SUFFIX,v2rayssr.com
 DOMAIN-SUFFIX,metacubex.one
-DOMAIN,wiki.metacubex.one
-
+DOMAIN-KEYWORD,metacubex
