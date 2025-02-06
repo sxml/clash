@@ -57,3 +57,11 @@ DOMAIN-SUFFIX,qichiyu.com
 DOMAIN-SUFFIX,v2rayssr.com
 DOMAIN-SUFFIX,metacubex.one
 DOMAIN-KEYWORD,metacubex
+
+# 谷歌市场
+GEOSITE,google@cn
+GEOSITE,google	
+DOMAIN-SUFFIX,services.googleapis.cn
+DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+DOMAIN-SUFFIX,+.services.googleapis.cn
+DOMAIN-SUFFIX,+.xn--ngstr-lra8j.com
