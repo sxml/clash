@@ -59,9 +59,8 @@ DOMAIN-SUFFIX,metacubex.one
 DOMAIN-KEYWORD,metacubex
 
 # 谷歌市场
-GEOSITE,google@cn
-GEOSITE,google	
+# 谷歌中国服务域名（直连/代理根据需求）
 DOMAIN-SUFFIX,services.googleapis.cn
-DOMAIN-SUFFIX,xn--ngstr-lra8j.com
-DOMAIN-SUFFIX,+.services.googleapis.cn
-DOMAIN-SUFFIX,+.xn--ngstr-lra8j.com
+DOMAIN-SUFFIX,xn--ngstr-lra8j.com  # Punycode 编码的 google.com
+# 使用 geosite 数据集匹配 Google 中国相关域名
+GEOSITE,google@cn
