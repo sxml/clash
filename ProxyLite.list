@@ -64,3 +64,4 @@ DOMAIN-SUFFIX,services.googleapis.cn
 DOMAIN-SUFFIX,xn--ngstr-lra8j.com  # Punycode 编码的 google.com
 # 使用 geosite 数据集匹配 Google 中国相关域名
 GEOSITE,google@cn
+DOMAIN-SUFFIX,linux.do
