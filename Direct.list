@@ -10,6 +10,10 @@ DOMAIN-SUFFIX,hao123.com
 DOMAIN-KEYWORD,baidu
 DOMAIN-KEYWORD,5207755
 # DOMAIN-KEYWORD,cloudflare
+DOMAIN-KEYWORD,wotgame
+DOMAIN-KEYWORD,wggames
+DOMAIN-KEYWORD,wowsgame
+DOMAIN-KEYWORD,wargaming
 
 # IP段匹配
 IP-CIDR,219.146.1.66/32,no-resolve
@@ -305,3 +309,7 @@ DOMAIN,ip.3322.net
 DOMAIN-SUFFIX,chat.deepseek.com
 DOMAIN-SUFFIX,deepseek.com
 # DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,wotgame.cn
+DOMAIN-SUFFIX,wggames.cn
+DOMAIN-SUFFIX,wowsgame.cn
+DOMAIN-SUFFIX,wargaming.net
