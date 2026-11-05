@@ -43,14 +43,14 @@ IP-CIDR,208.67.222.222/32,no-resolve
 IP-CIDR,208.67.220.220/32,no-resolve
 IP-CIDR,109.239.140.0/24,no-resolve
 IP-CIDR,67.198.55.0/24,no-resolve
-IP-CIDR,9.9.9.9,no-resolve
-IP-CIDR,149.112.112.112,no-resolve
-IP-CIDR,2001:4860:4860::8888,no-resolve
-IP-CIDR,2001:4860:4860::8844,no-resolve
-IP-CIDR,2606:4700:4700::1111,no-resolve
-IP-CIDR,2606:4700:4700::1001,no-resolve
-IP-CIDR,2620:74:1b::1:1,no-resolve
-IP-CIDR,2a09::,no-resolve
+IP-CIDR,9.9.9.9/32,no-resolve
+IP-CIDR,149.112.112.112/32,no-resolve
+IP-CIDR6,2001:4860:4860::8888/128,no-resolve
+IP-CIDR6,2001:4860:4860::8844/128,no-resolve
+IP-CIDR6,2606:4700:4700::1111/128,no-resolve
+IP-CIDR6,2606:4700:4700::1001/128,no-resolve
+IP-CIDR6,2620:74:1b::1:1/128,no-resolve
+IP-CIDR6,2a09::/32,no-resolve
 
 #2024 #DOMAIN-SUFFIX,
 DOMAIN-SUFFIX,qichiyu.com
@@ -61,7 +61,8 @@ DOMAIN-KEYWORD,metacubex
 # 谷歌市场
 # 谷歌中国服务域名（直连/代理根据需求）
 DOMAIN-SUFFIX,services.googleapis.cn
-DOMAIN-SUFFIX,xn--ngstr-lra8j.com  # Punycode 编码的 google.com
+# xn--ngstr-lra8j.com 为 Punycode 编码的 google.com
+DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 # 使用 geosite 数据集匹配 Google 中国相关域名
 GEOSITE,google@cn
 DOMAIN-SUFFIX,linux.do
