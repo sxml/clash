@@ -73,7 +73,7 @@ DOMAIN-SUFFIX,muse.ai
 DOMAIN-SUFFIX,sora.com
 DOMAIN-SUFFIX,openrouter.ai
 DOMAIN,copilot.microsoft.com
-
+DOMAIN-SUFFIX,facebook.com
 # ============================================================
 # 6. 少量固定 IP（原清单保留，非 DNS 依赖场景）
 # ============================================================
@@ -84,7 +84,6 @@ IP-CIDR,64.23.132.171/32,no-resolve
 # 7. 已剔除项（留档备查，如需恢复取消注释即可）
 # ============================================================
 # IP-ASN,20473,no-resolve                      # Vultr 整片机房，误伤面太大
-DOMAIN-SUFFIX,facebook.com                   # Meta 全平台，非 AI
 # DOMAIN-SUFFIX,meta.com                       # 同上
 # DOMAIN-SUFFIX,bing.com                       # 必应全站，非 AI
 # DOMAIN,browser-intake-datadoghq.com           # 埋点
