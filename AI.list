@@ -1,72 +1,117 @@
-# NAME: OpenAI
-# AUTHOR: blackmatrix7
-# REPO: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2025-06-06 09:20:00
-# DOMAIN: 7
-# DOMAIN-KEYWORD: 1
-# DOMAIN-SUFFIX: 24
-# IP-ASN: 1
-# IP-CIDR: 2
-# TOTAL: 35
-DOMAIN,browser-intake-datadoghq.com
+# NAME: AI-精简版
+# DESC: 只保留 AI 服务本体 + 登录/支付/语音闭环，剔除埋点、公共 SDK、以及过宽后缀
+# AUTHOR: sxml
+# SOURCE: 基于 blackmatrix7/ios_rule_script 的 OpenAI 段 + 自建 Bard/anthropic 段精简
+# UPDATED: 2026-11-22
+# FORMAT: classical（供 mihomo / OpenClash rule-providers 使用）
+#
+# 本次修改说明（相对旧版 AI.list）：
+#   1. 修正格式错误：DOMAIN-SUFFIX, sora.com 与 DOMAIN-SUFFIX, openrouter.ai 逗号后多了空格，
+#      部分内核不会 trim，可能整条失效。
+#   2. 移除 IP-ASN,20473,no-resolve —— ASN 20473 是 Vultr 整片机房，
+#      会把所有 Vultr IP（含自建 VPS）都拽进 AI 组，容易误伤/自引用。
+#   3. 剔除纯埋点与公共前端 SDK（这些被大量无关网站使用，误判会拖慢正常站点）：
+#      datadoghq / cloudflareinsights / statsig / featuregates / launchdarkly /
+#      sentry / segment / intercom / algolia / observeit
+#   4. 剔除过宽后缀（会把整个平台都代理走）：facebook.com / meta.com / bing.com
+#      其中 Copilot 只保留精确域名 DOMAIN,copilot.microsoft.com
+#   5. 完整保留 ChatGPT / Claude 的登录、证书、支付、语音链路：
+#      auth0 / identrust / stripe / arkoselabs / livekit / oaistatic / oaiusercontent
+
+# ============================================================
+# 1. OpenAI / ChatGPT（核心，必须保留）
+# ============================================================
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openaicom.imgix.net
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+DOMAIN-KEYWORD,openai
 DOMAIN,chat.openai.com.cdn.cloudflare.net
-DOMAIN,openai-api.arkoselabs.com
 DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
 DOMAIN,openaicomproductionae4b.blob.core.windows.net
 DOMAIN,production-openaicom-storage.azureedge.net
-DOMAIN,static.cloudflareinsights.com
-DOMAIN-SUFFIX,ai.com
-DOMAIN-SUFFIX,algolia.net
-DOMAIN-SUFFIX,api.statsig.com
-DOMAIN-SUFFIX,auth0.com
-DOMAIN-SUFFIX,chatgpt.com
-DOMAIN-SUFFIX,chatgpt.livekit.cloud
-DOMAIN-SUFFIX,client-api.arkoselabs.com
-DOMAIN-SUFFIX,events.statsigapi.net
-DOMAIN-SUFFIX,featuregates.org
-DOMAIN-SUFFIX,host.livekit.cloud
-DOMAIN-SUFFIX,identrust.com
-DOMAIN-SUFFIX,intercom.io
-DOMAIN-SUFFIX,intercomcdn.com
-DOMAIN-SUFFIX,launchdarkly.com
-DOMAIN-SUFFIX,oaistatic.com
-DOMAIN-SUFFIX,oaiusercontent.com
-DOMAIN-SUFFIX,observeit.net
-DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,openaiapi-site.azureedge.net
-DOMAIN-SUFFIX,openaicom.imgix.net
-DOMAIN-SUFFIX,segment.io
-DOMAIN-SUFFIX,sentry.io
+
+# ============================================================
+# 2. 登录 / 人机验证 / 证书 / 支付（缺一不可，否则登录卡住）
+# ============================================================
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,identrust.com
 DOMAIN-SUFFIX,stripe.com
-DOMAIN-SUFFIX,turn.livekit.cloud
-DOMAIN-KEYWORD,openai
-IP-CIDR,24.199.123.28/32,no-resolve
-IP-CIDR,64.23.132.171/32,no-resolve
-IP-ASN,20473,no-resolve
-# 内容：OpenAi Bard anthropic
-# 域名关键字匹配
-# DOMAIN-KEYWORD,openai
-# DOMAIN-KEYWORD,anthropic
-# DOMAIN-KEYWORD,Claude
-# 域名后缀匹配
-DOMAIN-SUFFIX,bard.google.com
-DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+
+# ============================================================
+# 3. Anthropic / Claude
+# ============================================================
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,circumlunar.space
-DOMAIN-SUFFIX,vulpes.one
-DOMAIN-SUFFIX,mozz.us
-DOMAIN-SUFFIX,conman.org
-DOMAIN-SUFFIX,bortzmeyer.org
+
+# ============================================================
+# 4. Google Gemini / Bard
+#     说明：主配置里已为 Gemini 系域名写了显式规则（钉到 🍀 Google 组），
+#     这里保留是为了本清单本身完整；显式规则优先，两者不冲突。
+# ============================================================
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+
+# ============================================================
+# 5. 其他 AI 服务（按需保留）
+# ============================================================
 DOMAIN-SUFFIX,grok.com
-DOMAIN,copilot.microsoft.com
-DOMAIN-SUFFIX,bing.com
+DOMAIN-SUFFIX,perplexity.ai
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,metademolab.com
-DOMAIN-SUFFIX,perplexity.ai
-DOMAIN-SUFFIX, sora.com
-DOMAIN-SUFFIX, openrouter.ai
-DOMAIN-SUFFIX,meta.com
 DOMAIN-SUFFIX,muse.ai
-DOMAIN-SUFFIX,facebook.com
+DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,openrouter.ai
+DOMAIN,copilot.microsoft.com
+
+# ============================================================
+# 6. 少量固定 IP（原清单保留，非 DNS 依赖场景）
+# ============================================================
+IP-CIDR,24.199.123.28/32,no-resolve
+IP-CIDR,64.23.132.171/32,no-resolve
+
+# ============================================================
+# 7. 已剔除项（留档备查，如需恢复取消注释即可）
+# ============================================================
+# IP-ASN,20473,no-resolve                      # Vultr 整片机房，误伤面太大
+# DOMAIN-SUFFIX,facebook.com                   # Meta 全平台，非 AI
+# DOMAIN-SUFFIX,meta.com                       # 同上
+# DOMAIN-SUFFIX,bing.com                       # 必应全站，非 AI
+# DOMAIN,browser-intake-datadoghq.com           # 埋点
+# DOMAIN,static.cloudflareinsights.com          # 埋点
+# DOMAIN-SUFFIX,api.statsig.com                 # 特性开关
+# DOMAIN-SUFFIX,events.statsigapi.net           # 埋点
+# DOMAIN-SUFFIX,featuregates.org                # 特性开关
+# DOMAIN-SUFFIX,launchdarkly.com                # 特性开关
+# DOMAIN-SUFFIX,sentry.io                       # 错误上报
+# DOMAIN-SUFFIX,segment.io                      # 埋点
+# DOMAIN-SUFFIX,intercom.io                     # 客服
+# DOMAIN-SUFFIX,intercomcdn.com                 # 客服
+# DOMAIN-SUFFIX,algolia.net                     # 站内搜索 SDK
+# DOMAIN-SUFFIX,observeit.net                   # 监控
+# DOMAIN-SUFFIX,ai.com                          # 过宽，容易命中无关 *.ai.com
+# DOMAIN-SUFFIX,sentry.io                       # 重复项
+# DOMAIN-SUFFIX,circumlunar.space               # 测试站点，与 AI 服务无关
+# DOMAIN-SUFFIX,vulpes.one
+# DOMAIN-SUFFIX,mozz.us
+# DOMAIN-SUFFIX,conman.org
+# DOMAIN-SUFFIX,bortzmeyer.org
+
+# ============================================================
+# 8. 可选补充（默认注释，按需启用）
+# ============================================================
+# DOMAIN-SUFFIX,mistral.ai
+# DOMAIN-SUFFIX,cohere.ai
+# DOMAIN-SUFFIX,huggingface.co
+# DOMAIN-SUFFIX,midjourney.com
+# DOMAIN-SUFFIX,deepseek.com
